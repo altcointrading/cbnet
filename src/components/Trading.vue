@@ -13,7 +13,10 @@
 <script>
 import moment from 'moment'
 import axios from 'axios'
+import apicache from 'apicache'
 import VueMarkdown from 'vue-markdown'
+
+let cache = apicache.middleware
 
 export default {
   name: 'home',
@@ -36,7 +39,7 @@ export default {
     }
   },
   created () {
-    axios.get(`https://api.cosmicjs.com/v1/cbnet/object-type/tradings?pretty=true&hide_metafields=true&locale=pt-BR`)
+    axios.get(`https://api.cosmicjs.com/v1/cbnet/object-type/tradings?pretty=true&hide_metafields=true&locale=pt-BR`, cache('5 minutes'))
     .then(response => {
       this.posts = response.data.objects
     })

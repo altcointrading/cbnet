@@ -1,10 +1,15 @@
 <template>
   <section>
-    <seo-lang code="pt-BR" url="https://comprebitcoins.net" current></seo-lang>
-    <seo-title v-bind:value="$data.posts.metadata.seotitle"></seo-title>
-    <seo-description v-bind:value="$data.posts.metadata.description"></seo-description>
     <div class="hero-unit">
-      <h1>{{ $data.posts.metadata.seotitle }}</h1>
+      <h1>Compre bitcoins perto de voce</h1>
+      <section class="lbc">
+        <iframe allowtransparency="true" frameborder="0" hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no" width="234" height="60" src="https://localbitcoins.com/affiliate-embed/half-banner?ch=4nq3"></iframe>
+      </section>
+      <section class="cta">
+        <a class="button" href="https://localbitcoins.com/instant-bitcoins/?action=buy&country_code=BR&amount=&currency=BRL&place_country=BR&online_provider=ALL_ONLINE&find-offers=Search?ref=4nq3" rel="nofollow">
+          Compre bitcoins no Brasil
+        </a>
+      </section>
     </div>
     <div class="container">
       <h4 class="post">{{$data.posts.title}}</h4>
@@ -19,8 +24,10 @@
 <script>
 import moment from 'moment'
 import axios from 'axios'
+import apicache from 'apicache'
 import VueMarkdown from 'vue-markdown'
-import VueSeo from 'vue-seo'
+
+let cache = apicache.middleware
 
 export default {
   name: 'home',
@@ -30,8 +37,7 @@ export default {
     }
   },
   components: {
-    'vue-markdown': VueMarkdown,
-    'vue-seo': VueSeo
+    'vue-markdown': VueMarkdown
   },
   filters: {
     moment: function (str) {
@@ -44,7 +50,7 @@ export default {
     }
   },
   created () {
-    axios.get(`https://api.cosmicjs.com/v1/cbnet/object/home?pretty=true&hide_metafields=false&locale=pt-BR`)
+    axios.get(`https://api.cosmicjs.com/v1/cbnet/object/home?pretty=true&hide_metafields=false&locale=pt-BR`, cache('5 minutes'))
     .then(response => {
       this.posts = response.data.object
     })
@@ -58,5 +64,23 @@ export default {
 <style scoped>
 .hero-unit {
   background: linear-gradient(140deg,#FC354C 10%, #0ABFBC 90%) center/cover no-repeat;
+}
+.hero-unit section {
+  text-align: center;
+}
+.hero-unit section.lbc {
+  position: relative;
+  top: 52%;
+}
+.hero-unit section.cta {
+  position: relative;
+  top: 58%;
+}
+section.cta a {
+    color: #fff;
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    background: #333;
 }
 </style>

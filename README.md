@@ -6,21 +6,46 @@
 
 > Gradients by https://uigradients.com/
 
-## Additional packages
+## LBC
 
-package.json
+```
+<h2>localbitcoins: </h2>
+<div v-for="item in $data.lbc">
+  <p>{{item.profile.name}}</p>
+</div>
+<a class="buttons" href="https://localbitcoins.com/?ref=4nq3">Comprar ahora</a>
+```
+
+```
+axios.get(`https://localbitcoins.com/buy-bitcoins-with-cash/18654/12200-000-br/.json`)
+.then(response => {
+  this.lbc = response.data
+})
+```
+
+
+https://localbitcoins.com/ad/299252/purchase-bitcoin-bank-bb-itaucaixa-bradesco-brazil
+
+
+## Additional packages
 
 ```
 "moment":"^2.18.1",
 "axios":"^0.16.1",
 "vue-markdown":"^2.1.3",
-"lodash":"^3.10.1",
-"vue-seo":"^0.1.5",
 ```
 
-## Search Engine Optimization
+## ~~Search Engine Optimization~~
+
+Not ready for Vue 2 yet
 
 [https://www.npmjs.com/package/vue-seo](https://www.npmjs.com/package/vue-seo)
+
+```
+<seo-lang code="pt-BR" url="https://comprebitcoins.net" current></seo-lang>
+<seo-title v-if="$data.posts.metadata.seotitle" v-bind:value="$data.posts.metadata.seotitle"></seo-title>
+<seo-description v-if="$data.posts.metadata.description" v-bind:value="$data.posts.metadata.description"></seo-description>
+```
 
 ## Build Setup
 
