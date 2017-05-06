@@ -1,14 +1,10 @@
 # CompreBitcoins
 
-> Frontend for comprebitcoins.net. Content will be generated and served via Cosmic JS API. Hosting custom on suitable geo location.
+> Frontend for [comprebitcoins.net](https://comprebitcoins.net).
 
 > Design theme inspired by https://nuxt-website.cosmicapp.co/ and http://www.pixelsbyrick.com/
 
 > Gradients by https://uigradients.com/
-
-## Content
-
-`https://api.cosmicjs.com/v1/cbnet`
 
 ## Additional packages
 

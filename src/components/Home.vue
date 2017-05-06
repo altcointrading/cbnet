@@ -1,12 +1,15 @@
 <template>
   <section>
+    <seo-lang code="pt-BR" url="https://comprebitcoins.net" current></seo-lang>
+    <seo-title v-bind:value="$data.posts.metadata.seotitle"></seo-title>
+    <seo-description v-bind:value="$data.posts.metadata.description"></seo-description>
     <div class="hero-unit">
-      <h1>Compre Bitcoins perto de voce</h1>
+      <h1>{{ $data.posts.metadata.seotitle }}</h1>
     </div>
     <div class="container">
       <h4 class="post">{{$data.posts.title}}</h4>
       <article>
-        <vue-markdown :source="$data.posts.content">Carregando....</vue-markdown>
+        <vue-markdown :source="$data.posts.content"></vue-markdown>
       </article>
       <em>Published {{$data.posts.created_at | moment }}, last modified at {{$data.posts.modified_at | moment }}</em>
     </div>
@@ -17,16 +20,18 @@
 import moment from 'moment'
 import axios from 'axios'
 import VueMarkdown from 'vue-markdown'
+import VueSeo from 'vue-seo'
 
 export default {
   name: 'home',
   data () {
     return {
-      posts: []
+      posts: [{'content': 'Carregando...'}]
     }
   },
   components: {
-    'vue-markdown': VueMarkdown
+    'vue-markdown': VueMarkdown,
+    'vue-seo': VueSeo
   },
   filters: {
     moment: function (str) {
@@ -39,7 +44,7 @@ export default {
     }
   },
   created () {
-    axios.get(`https://api.cosmicjs.com/v1/cbnet/object/home?pretty=true&hide_metafields=true&locale=pt-BR`)
+    axios.get(`https://api.cosmicjs.com/v1/cbnet/object/home?pretty=true&hide_metafields=false&locale=pt-BR`)
     .then(response => {
       this.posts = response.data.object
     })

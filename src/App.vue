@@ -15,26 +15,14 @@
     <footer class="footer">
      <div class="footer-notes">
       <div class="col" style="float:left;width:60%;">
-        <div style="margin-bottom:20px;">Vue Framework<br/><a href="https://github.com/nuxt/nuxt.js" target="_blank">Nuxt.js</a></div>
-        <div style="margin-bottom:20px;">Lorem Ipsum by<br/><a href="http://spaceipsum.com" target="_blank">http://spaceipsum.com</a></div>
-        <div style="margin-bottom:20px;">UI Gradients by<br/><a href="http://uigradients.com" target="_blank">http://uigradients.com</a></div>
+        <div style="margin-bottom:20px;"><router-link to="/">home</router-link></div>
+        <div style="margin-bottom:20px;"><router-link to="/compre">compre bitcoins</router-link></div>
+        <div style="margin-bottom:20px;"><router-link to="/trading">bitcoin trading</router-link></div>
       </div>
       <div class="col" style="float:left;width:40%;">
-        <div style="margin-bottom:20px;">
-          <a style="margin-right:20px;" href="https://github.com/cosmicjs" target="_blank">
-            <i class="fa fa-github social-icon"></i>
-          </a>
-          <a href="https://twitter.com/cosmic_js" target="_blank">
-            <i class="fa fa-twitter social-icon"></i>
-          </a>
-        </div>
-        <div style="margin-bottom:20px;">&copy; {{ new Date().getFullYear() }} Cosmic JS</div>
-        <div style="margin-bottom:20px;">
-          <a href="https://cosmicjs.com" target="_blank">
-            <img style="float:left;margin-right:15px;position:relative;" src="https://cosmicjs.com/images/logo.svg" width="28" height="28"/>
-            <span class="powered-by">Proudly powered by Cosmic JS</span>
-          </a>
-        </div>
+        <div style="margin-bottom:20px;">&copy; {{ new Date().getFullYear() }} comprebitcoins.net</div>
+        <div style="margin-bottom:20px;"><a href="https://altcointrading.net" target="_blank">altcointrading.net</a></div>
+        <div style="margin-bottom:20px;"><a href="https://news.altcointrading.net" target="_blank">altcointrading news</a></div>
       </div>
       <div class="clearfix"></div>
     </div>
