@@ -4,6 +4,12 @@
 
 > Design theme inspired by https://nuxt-website.cosmicapp.co/ and http://www.pixelsbyrick.com/
 
+> Gradients by https://uigradients.com/
+
+## Content
+
+`https://api.cosmicjs.com/v1/cbnet`
+
 ## Additional packages
 
 package.json
